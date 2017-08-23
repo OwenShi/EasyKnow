@@ -4,9 +4,15 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import iView from 'iview'
-import axios from 'axios'
+import Axios from 'axios'
 import 'iview/dist/styles/iview.css'
+import ajax from './plugins/common/index'
 
+Vue.prototype.$axios = Axios
+console.log(Vue.prototype)
+
+//注册插件
+Vue.use(ajax)
 Vue.config.productionTip = false
 
 Vue.use(iView)

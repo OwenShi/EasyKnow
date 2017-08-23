@@ -1,8 +1,8 @@
 var IC = {
-  SERVER:'localhost:3000',
-  INTERFACE:{
-    QUERYALL:'/users/queryAllTable'
-  }
+  'SERVER':'http://localhost:3000',
 }
+IC.INTERFACE = {
+    'QUERYALL':IC.SERVER + '/users/queryAllTable'
+  }
 
 export default IC

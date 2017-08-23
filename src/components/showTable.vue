@@ -8,9 +8,11 @@
 </template>
 <style></style>
 <script>
+	import IC from '../../InterfaceConfig'
 	export default{
 		data(){
 			return{
+				columnsData:[],
 				columnsList:[
 					{
 					  title:'姓名',
@@ -27,6 +29,27 @@
 				],
 				columnsData:[],
 			}
+		},
+		mounted(){
+			var _this = this;
+			console.log('xxxxx',_this)
+			getAllTable(_this, 0)
 		}
 	}
+
+  function getAllTable(_this,curr) {
+    var opts = {
+      param:{
+      	'pageSize':10,
+      	'pageIndex': curr - 1 || 0
+      }
+    }
+    _this.$Common.ajax('post',IC.QUERYALL,opts, (err)=>{
+      console.log('err')
+    },(res)=>{
+      if (res.success){
+        _this.columnsData = res.data
+      }
+    })
+  }
 </script>

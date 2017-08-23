@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Hello from '@/components/Hello'
 import ExportCsv from '../components/exportCsv'
 import Home from '../components/home'
+import ShowTable from '../components/showTable'
 Vue.use(Router)
 
 export default new Router({
@@ -19,6 +20,10 @@ export default new Router({
     {
       path:'/home',
       component:Home
+    },
+    {
+      path:'/showTable',
+      component:ShowTable
     }
   ]
 })
