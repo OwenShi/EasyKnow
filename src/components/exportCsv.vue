@@ -105,4 +105,18 @@
       }
     }
   }
+  
+  function getAllTable(_this,curr) {
+    var opts = {
+      param:{
+      }
+    }
+    _this.$Common.Axios('post',_this.SERVER.QUERYALL,opts, (err)=>{
+      console.log('err')
+    },(res)=>{
+      if (res.success){
+        _this.studentMsg = res.data
+      }
+    })
+  }
 </script>
