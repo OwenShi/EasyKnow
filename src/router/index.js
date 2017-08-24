@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Hello from '@/components/Hello'
-import ExportCsv from '../components/exportCsv'
+import ExportCsv from '../components/submitTable'
 import Home from '../components/home'
 import ShowTable from '../components/showTable'
 Vue.use(Router)

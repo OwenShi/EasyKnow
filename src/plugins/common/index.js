@@ -7,9 +7,8 @@ export  default function (Vue) {
         ajax:function (type,url,opts,efn,sfn) {
           var method = type || 'post'
           var param = opts.param
-          console.log('this',_this)
-          console.log('vue',Vue)
-          Vue.$axios.post(url, JSON.stringify(opts.param))
+          _this.$axios.defaults.headers.post['content-Type'] = 'application/json';
+          _this.$axios.post(url, JSON.stringify(opts.param))
             .then(response=>{
               sfn ? sfn(response):console.log('success but not sfn')
             })

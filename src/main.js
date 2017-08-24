@@ -9,7 +9,7 @@ import 'iview/dist/styles/iview.css'
 import ajax from './plugins/common/index'
 
 Vue.prototype.$axios = Axios
-console.log(Vue.prototype)
+console.log('...',Vue.prototype)
 
 //注册插件
 Vue.use(ajax)

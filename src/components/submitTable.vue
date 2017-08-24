@@ -10,11 +10,14 @@
       <Button v-if="isDelete" @click="cancelDelete" type="primary">取消</Button>
     </div>
     <Row>
-      <Table border stripe :columns="columns1" :data="studentMsg"></Table>
-      <div class="footer">
-        <Page class="flex-center":total="totalCount"></Page>
+      <div v-for="item in columns">
+        <Tag>{{item.title}}</Tag>
+        <Tag>{{item.key}}</Tag>
       </div>
     </Row>
+    <div class="toolBox">
+      <Button type="info" @click="submit">提交信息</Button>
+    </div>
   </div>
 </template>
 <style>
@@ -34,38 +37,8 @@
   export default{
     data(){
       return{
+        columns:[],
         isDelete:false,
-        columns1:[
-          {
-            title:'姓名',
-            key:'name'
-          },
-          {
-            title:'学院',
-            key:'faculty'
-          },
-          {
-            title:'专业',
-            key:'major'
-          }
-        ],
-        studentMsg:[
-          {
-            name:'AAAA',
-            faculty:'信息学院',
-            major:'通信工程'
-          },
-          {
-            name:'BBBB',
-            faculty:'信息学院',
-            major:'通信工程'
-          },
-          {
-            name:'CCCC',
-            faculty:'信息学院',
-            major:'通信工程'
-          }
-        ],
         addColumnsName:'',
         addColumnsTitle:'',
         deleteIndex:0,
@@ -75,8 +48,7 @@
     methods:{
       addColumns(){
         var _this = this
-        var columns = _this.columns1
-        columns.push({title:_this.addColumnsName,key:_this.addColumnsTitle})
+        _this.columns.push({title:_this.addColumnsName,key:_this.addColumnsTitle})
       },
       deleteColumns(){
         var _this = this
@@ -102,6 +74,10 @@
       cancelDelete(){
         var _this = this
         _this.isDelete = false
+      },
+      submit(){
+        var _this = this
+        
       }
     }
   }

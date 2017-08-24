@@ -4,6 +4,9 @@
 			<Button type="info">导出CSV文件</Button>
 		</div>
 		<Table stripe border :columns="columnsList" :data="columnsData"></Table>
+    <div class="footer">
+      <Page class="flex-center":total="totalCount"></Page>
+    </div>
 	</div>
 </template>
 <style></style>
@@ -28,11 +31,11 @@
 					}
 				],
 				columnsData:[],
+        totalCount:100
 			}
 		},
 		mounted(){
 			var _this = this;
-			console.log('xxxxx',_this)
 			getAllTable(_this, 0)
 		}
 	}
@@ -44,11 +47,11 @@
       	'pageIndex': curr - 1 || 0
       }
     }
-    _this.$Common.ajax('post',IC.QUERYALL,opts, (err)=>{
+    _this.$Common.ajax('post',IC.INTERFACE.QUERYALL,opts, (err)=>{
       console.log('err')
     },(res)=>{
-      if (res.success){
-        _this.columnsData = res.data
+      if (res.data.success){
+        _this.columnsData = res.data.data
       }
     })
   }
